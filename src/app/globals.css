@@ -1,0 +1,63 @@
+@import "tailwindcss";
+
+@theme {
+  /* Brand Colors */
+  --color-navy: #1A2744;
+  --color-navy-dark: #0F172A;
+  /* Used for gradients */
+  --color-red: #DC2626;
+  --color-red-dark: #B91C1C;
+  /* Hover state */
+  --color-gray-light: #F3F4F6;
+  --color-white: #FFFFFF;
+  --color-text-dark: #1F2937;
+  --color-text-light: #6B7280;
+
+  /* Semantic Mappings */
+  --color-primary: var(--color-navy);
+  --color-primary-foreground: var(--color-white);
+  --color-secondary: var(--color-red);
+  --color-secondary-foreground: var(--color-white);
+  --color-background: var(--color-white);
+  --color-foreground: var(--color-text-dark);
+  --color-muted: var(--color-gray-light);
+  --color-muted-foreground: var(--color-text-light);
+
+  --font-sans: var(--font-geist-sans);
+  /* Keeping Geist for now, looks modern like Inter */
+}
+
+:root {
+  --background: #FFFFFF;
+  --foreground: #1F2937;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* United Lane is a corporate site, keeping light mode as default/primary mostly, 
+       but mapping dark mode to Navy for a premium feel if needed */
+    --background: #0F172A;
+    --foreground: #F3F4F6;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom Utilities for smooth transitions */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .transition-all-300 {
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+  }
+}
